@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark cyberpunk theme - always dark mode */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Neon cyan primary */
+    --primary: 189 97% 55%;
+    --primary-foreground: 222 47% 5%;
+
+    /* Deep purple secondary */
+    --secondary: 270 70% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Purple accent */
+    --accent: 280 80% 65%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 12%;
+    --ring: 189 97% 55%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens */
+    --neon-cyan: 189 97% 55%;
+    --neon-purple: 280 80% 65%;
+    --neon-pink: 330 85% 65%;
+    --deep-bg: 222 47% 5%;
+    --card-bg: 222 47% 8%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 97% 55% / 0.8), hsl(280 80% 65% / 0.8));
+    --gradient-glow: linear-gradient(135deg, hsl(189 97% 55% / 0.3), hsl(280 80% 65% / 0.3));
+    --gradient-blur: radial-gradient(circle at 50% 50%, hsl(189 97% 55% / 0.15), transparent 70%);
+    
+    /* Shadows & Glows */
+    --glow-cyan: 0 0 40px hsl(189 97% 55% / 0.5);
+    --glow-purple: 0 0 40px hsl(280 80% 65% / 0.5);
+    --shadow-elevated: 0 20px 60px hsl(222 47% 3% / 0.7);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer utilities {
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-card {
+    background: hsl(var(--card-bg) / 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
